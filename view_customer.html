@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <title>The Little Big Kid Company</title>
+  </head>
+  <style>
+    body{
+        background-color: #DFE3E7;
+        overflow-x: hidden;
+        font-family: 'Raleway', sans-serif;
+    }
+    .flex{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex .child{
+        
+    }
+    .main{
+        margin-right: 20px;
+        padding-bottom: 7px;
+        text-align: center;
+        color: #757678;
+        font-weight: 500;
+        font-size: 1.0em;
+        border-bottom: 4px solid #4E73DF;
+    }
+    .card{
+        width: 80vw;
+        margin-left: 10vw;
+        padding: 20px;
+        margin-top: 10px;
+        height: 70px;
+        font-size: 0.8em;
+        padding: 7px;
+        box-shadow: 5px 10px rgba(black, black, black, 0.16);
+    }
+    .carddetail{
+        width: 80vw;
+        margin-left: 10vw;
+        border:3px solid #BA3338;
+        height: 350px;
+        font-size: 0.8em;
+        padding: 7px;
+        background-color: #fff;
+        border-radius: 7px;
+        margin-top:7px; 
+    }
+    .transactiondetails{
+        width: 80vw;
+        margin-left: 10vw;
+        border:3px solid #BA3338;
+        height: 350px;
+        overflow-y: scroll;
+        font-size: 0.8em;
+        padding: 7px;
+        background-color: #fff;
+        border-radius: 7px;
+        margin-top:7px; 
+    }
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #BA3338; 
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: red; 
+        }
+    .flex3{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    .displaytype{
+        display: none;
+    }
+    input{
+         width: 60%;
+         height: 40px;
+         border:1px solid #ced4da;
+         border-radius:5px;
+     }
+     .form-control{
+         height: 40px !important;
+         border-top-left-radius: 15px;border-bottom-left-radius: 15px;
+     }
+  </style>
+  <body>
+     <div class="flex">
+        <div class="child">
+                <img src="./asset/img/logo.png" alt="" width="130px;height:50px;">
+        </div>
+        <div class="child">
+            <div style="text-align: center;">
+                <a href="main.html" class="main" style="color: #DFE3E7; border-bottom: none">DASHBOARD</a>
+                <a href="customer.html" class="main">CUSTOMER</a>
+                <a href="password.html" class="main" style="color: #DFE3E7; border-bottom: none;">CHANGE PASSWORD</a>
+            </div>
+        </div>
+        <div class="child">
+                <div>
+                        <!--a href="" style="color:#757678;background-color:#fff;margin:7px;">Admin &nbsp;<span>
+                                <img src="./asset/img/user.png" alt="" style="width:20px;height: 20px;">
+                        </span></a-->
+                        <a href="create_admin.html" id="role" class="btn btn-primary displaytype" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Create Admin</a>
+                        <a href="home.html" class="btn btn-primary" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Home</a>
+                        <a onclick="logout()" class="btn btn-primary" style="border:1px solid #4E73DF;color:#fff;background-color:#4E73DF;margin:7px;">Logout</a>
+                </div>
+        </div>
+     </div>
+     <div class="flex3" style="margin-top:1px;">
+            
+            <div class="child">
+                <div style="text-align: center;font-size: 0.8em;">
+                    <a href="customer.html" class="main" style="color: #757678; border-bottom: none">ADD CUSTOMER</a>
+                    <a href="view_customer.html" class="main" style="color: #4E73DF; border-bottom: none">VIEW CUSTOMER</a>
+                    <a href="editcustomer.html" class="main" style="color: #757678; border-bottom: none;">EDIT CUSTOMER</a>
+                </div>
+            </div>
+           
+         </div>
+     <div style="width:60%;margin-left:20%;padding: 10px;">
+           <div class="row">
+               <div class="col-12">
+                    <input id="search" type="text" style="border-top-left-radius: 0px;border-bottom-left-radius:0px;" class="form-control" placeholder='Search customer by name or ID'/>
+               </div>
+               <!--div class="col-3" style="margin-left: -25px;">
+                    <input type="submit" class="btn btn-primary" style="width:10vw;height: 38px;"/>
+               </div-->
+               
+           </div>
+     </div>  
+     <div id="cloneinfo" style="padding: 10px;">   
+        <div class='card displaytype searchcard' id="card" style='text-align: center;font-weight: 700;'>
+            <div class='row'  style='padding:20px;'>
+                <div class='col-2 unique_id'  style='color: #858796'>unique_id</div>
+                <div class='col-3 customer_name'>customer_name</div>
+                <div class='col-2'><span class="color" style='width: 20px;height:20px;background-color:red;position:absolute;'></span></div>
+                <div class='col-2'><a  class='btn btn-primary updatelist' style='margin-top:-10px;border:2px solid #BA3338;color:#BA3338;background-color:#fff;font-size:0.9em;'>Update</a>
+                </div>
+                <div class='col-3' style='margin-left: -4vw;'>
+                <a  class='btn btn-primary translist' style='margin-top:-10px;border:2px solid #BA3338;color:#fff;background-color:#BA3338;font-size:0.9em;'>View Transaction</a>
+                </div>
+            </div>
+        </div>
+        <div class="carddetail displaytype" id='details' style="font-weight: 700;">
+                <div style="display: flex;justify-content: flex-end">
+                    <button class="closebtn" style="font-weight:500;margin:10px;border: 2px solid #BA3338;color: #BA3338;height: 30px;background-color: #fff;border-radius:2px;width: 100px;padding-left:25px;padding-right:25px;border-radius:5px;">CLOSE</button>
+                    
+                </div>
+                <div style="clear: both;">
+                        <div class="row" style=''>
+                            <div class="col-6" style="">
+                                <p style="font-size: 1.5em;font-weight:700;margin-left: 4vw;">Gift Wrapping</p>
+                            </div>
+                            <div class="col-6">
+                                    <p style="font-size: 1.5em;font-weight:700">Gift Certificate</p>
+                                </div>
+                        </div>
+                        <div class="row" style='color: #858796;'>
+                                <div class="col-3">
+                                    <p style="font-size: 1.1em;font-weight:200;text-align: center;">Gift Wrapping left</p>
+                                    <p class='gift_wrapping' style="color: #BA3338;font-size:1.2em;text-align:center;margin: 25px;">9</p>
+                                </div>
+                                <div class="col-3" style='text-align:center;'>
+                                        <p style="font-size: 1.1em;font-weight:200;text-align: center;">Gift Wrapping used today</p>
+                                        <p>
+                                                <span>
+                                                    <input type="number" class="gift_wrapping_used_today" style="width:80px;height: 40px;padding:5px;margin-right:10px;font-size:14px;"/>
+                                                </span>
+                                                <!--span>
+                                                        <input type="submit" value="Remove" class="btn btn-primary" style="width:100px;margin-top:-5px;"/>
+                                                </span-->
+                                        </p>
+                                    
+                                </div>
+                                <div class="col-3">
+                                        <p style="font-size: 1.1em;font-weight:400;">Gift Certificate Left</p>
+                                        <p class='gift_cert' style="color: #BA3338;font-size:1.2em;text-align:center;margin: 25px;">9</p>
+                                    </div>
+                                    <div class="col-3" style='text-align:center;'>
+                                            <p style="font-size: 1.1em;font-weight:200;text-align: center;">Gift Certificate used today</p>
+                                            <p>
+                                                    <span>
+                                                        <input class='gift_certificate_used_today' type="number" style="width:80px;height: 40px;padding:5px;margin-right:10px;font-size:14px;"/>
+                                                    </span>
+                                                    <!--span>
+                                                            <input type="submit" value="Remove" class="btn btn-primary submit_today_transaction" style="width:100px;margin-top:-5px;"/>
+                                                    </span-->
+                                            </p>
+                                        
+                                    </div>
+                            </div>
+                </div>
+                <hr />
+                <div style="clear: both;">
+                        <div class="row">
+                            <div class="col-6" style="">
+                                <p style="font-size: 1.1em;font-weight:700;margin-left: 4vw;">Amount Spent</p>
+                                <p style="font-size: 1.1em;font-weight:700;margin-left: 4vw;">Total Amount Spent: <span style="color: #BA3338"> <span class="point">500</span> points</span></p>
+                                <p class='progress' style="width: 80%;margin-left:3vw;border-radius: 10px;position: absolute;height: 20px;">
+                                    <span class="progressbar" style="width: 80%;border-radius: 10px;height:19px;position: absolute;background-color: #7DD148;"></span>
+                                </p>
+                            </div>
+                            <div class="col-6" style='text-align:center;'>
+                                    <p style="font-size: 1.1em;font-weight:200;text-align: center;">Amount Spent Today</p>
+                                    <p>
+                                        <span>
+                                            <input type="number" class="amount_spent_today" style="width:80px;height: 40px;padding:5px;margin-right:10px;font-size:14px;"/>
+                                        </span>
+                                        <span>
+                                                <button type="button" class="btn btn-primary submitbtn" style="width:100px;margin-top:-5px;">Save</button>
+                                        </span>
+                                    </p>
+                                    
+                                
+                            </div>
+                        </div>
+                        
+                </div>
+        </div> 
+        <div class="transactiondetails displaytype" id='trans' style="font-weight: 700;background-color: #BA3338;height: 1400px;overflow-y: scroll">
+            <div style="display: flex;justify-content: flex-end">
+                <button class="closebtn1" style="font-weight:500;margin:10px;border: 2px solid #BA3338;color: #BA3338;height: 30px;background-color: #fff;border-radius:2px;width: 100px;padding-left:25px;padding-right:25px;border-radius:5px;">CLOSE</button>
+                
+            </div>
+            <div class="table-responsive" style='margin-top:20px;'>
+                <table class="table table-striped jambo_table bulk_action">
+                      <thead>
+                        <tr class="headings">
+                          <th class="column-title">Date </th>
+                          <th class="column-title">Store </th>
+                          <th class="column-title">Gift Wrapping used </th>
+                          <th class="column-title">Gift Certificate used </th>
+                          <th class="column-title">Amount Spent </th>
+                        </tr>
+                      </thead>
+
+                      <tbody id="tbody">
+                        
+                      </tbody>
+                    </table> 
+            </div>   
+        </div>    
+                
+      </div> 
+      <div id="container">
+
+      </div>   
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+
+
+<script>
+  $(function(){
+      var global_id = '';
+      var trans_id = '';
+      $("#container").append("<i style='font-size: 40px;text-align:center;color:#fff' class='fas fa-spinner fa-spin'></i>");
+      var customers = JSON.parse(localStorage.getItem('customers'));
+      var transactions = JSON.parse(localStorage.getItem('transactions'));
+      var levels = JSON.parse(localStorage.getItem('levels'));
+      let role = JSON.parse(localStorage.getItem('role'));
+      if(role == 'super admin') $('#role').removeClass('displaytype');
+      else $('#role').addClass('displaytype');
+      $('#container').html('');
+      customers.forEach(c => {
+          //alert('ass');
+          let card = $('#card').clone();
+          card.prop('id', ''+c.id+'');
+          card.appendTo("#container");
+          $('#'+c.id+'').removeClass('displaytype');
+          $('#'+c.id+'').find('.unique_id').prop('id','unique_id'+c.id+'').text(c.unique_id);
+          $('#'+c.id+'').find('.customer_name').prop('id','customer_name'+c.id+'').text(c.customer_name.toUpperCase());
+          $('#'+c.id+'').find('.updatelist').attr('customer_id',c.id);
+          $('#'+c.id+'').find('.updatelist').attr('gift_left',c.customer_wrapping_left);
+          $('#'+c.id+'').find('.updatelist').attr('cert_left',c.customer_certificate_left);
+          $('#'+c.id+'').find('.updatelist').attr('id','updatelist'+c.id+'');
+          $('#'+c.id+'').find('.updatelist').attr('customer_level',c.customer_level);
+          $('#'+c.id+'').find('.updatelist').attr('gift_certificate_left',c.customer_certificate_left);
+          $('#'+c.id+'').find('.updatelist').attr('gift_wrapping_left',c.customer_wrapping_left);
+          $('#'+c.id+'').find('.translist').attr('customer_id',c.id);
+          $('#'+c.id+'').find('.translist').attr('id','translist'+c.id+'');
+          if(c.customer_level == '0')
+          $('#'+c.id+'').find('.color').css('background-color','#757678');
+          if(c.customer_level == '1')
+          $('#'+c.id+'').find('.color').css('background-color','#39DB2C');
+          if(c.customer_level == '2')
+          $('#'+c.id+'').find('.color').css('background-color','#FF4497');
+          if(c.customer_level == '3')
+          $('#'+c.id+'').find('.color').css('background-color','#00A3F2');
+          
+      });
+      
+      $('body').on('click', '.updatelist', function(e){
+          let id = $("#"+this.id+"").attr("customer_id");
+          $('#trans'+id+'').remove();
+          trans_id = '';
+          e.preventDefault();
+         
+          if(this.id == global_id) return false;
+          global_id = this.id;          
+          
+          let gift_left = $("#"+this.id+"").attr("gift_left");
+          let gift_cert = $("#"+this.id+"").attr("cert_left");
+          let customer_level = $("#"+this.id+"").attr("customer_level");
+          let gift_certificate_left = $("#"+this.id+"").attr("gift_certificate_left");
+          let customer_wrapping_left = $("#"+this.id+"").attr("gift_wrapping_left");
+          //alert(gift_certificate_left);
+          let max_amount_at_level = 1;
+          let details = $('#details').clone();
+          details.prop('id', 'details'+id+'');
+          details.insertAfter('#'+id+'');
+          $('#details'+id+'').removeClass('displaytype');
+          $('#details'+id+'').find('.closebtn').attr('customer_id',id);
+          $('#details'+id+'').find('.closebtn').attr('id','closebtn'+id+'');
+          $('#details'+id+'').find('.gift_wrapping').attr('id','gift_wrapping'+id+'');
+          $('#details'+id+'').find('.gift_cert').attr('id','gift_certificate'+id+'');
+          $('#details'+id+'').find('.gift_wrapping').text(gift_left);
+          $('#details'+id+'').find('.gift_cert').text(gift_cert);
+          $('#details'+id+'').find('.gift_wrapping_used_today').attr('id','gift_wrapping_used_today'+id+'');
+          $('#details'+id+'').find('.gift_wrapping_used_today').attr('customer_id',id);
+          $('#details'+id+'').find('.gift_wrapping_used_today').attr('gift_wrapping',customer_wrapping_left);
+          $('#details'+id+'').find('.gift_certificate_used_today').attr('id','gift_certificate_used_today'+id+'');
+          $('#details'+id+'').find('.gift_certificate_used_today').attr('customer_id',id);
+          $('#details'+id+'').find('.gift_certificate_used_today').attr('gift_certificate',gift_certificate_left);
+          $('#details'+id+"").find('.submitbtn').attr('id','submitbtn'+id+'');
+          $('#details'+id+"").find('.submitbtn').attr('customer_id',id);
+          $('#details'+id+"").find('.submitbtn').attr('customer_level',customer_level);
+          $('#details'+id+"").find('.amount_spent_today').attr('id','amount_spent_today'+id+'');
+          $('#details'+id+"").find('.point').attr('id','point'+id+'');
+          levels.forEach(l => {
+              if(parseInt(l.level_id) == parseInt(customer_level)){
+                  max_amount_at_level = l.max_amount;
+              }
+          });
+          if(parseInt(customer_level) == 0){
+            $('#details'+id+'').find('.progress').css('border:1px solid','#757678');
+            $('#details'+id+'').find('.progressbar').css('background-color','#757678');
+          }
+          if(parseInt(customer_level) == 1){
+            $('#details'+id+'').find('.color').css('border:1px solid','#39DB2C');
+            $('#details'+id+'').find('.progressbar').css('background-color','#39DB2C');
+          }
+          if(parseInt(customer_level) == 2){
+            $('#details'+id+'').find('.color').css('border:1px solid','#FF4497');
+            $('#details'+id+'').find('.progressbar').css('background-color','#FF4497');
+          }
+          if(parseInt(customer_level) == 3){
+            $('#details'+id+'').find('.color').css('border:1px solid','#00A3F2');
+            $('#details'+id+'').find('.progressbar').css('background-color','#00A3F2');
+          }
+          //$('#details'+id+"").find('.progressbar').attr('id','progressbar'+id+'');
+          let totalspent = 0;
+          transactions.forEach(t => {
+              if(t.customer_id == id){
+                 totalspent = totalspent + parseFloat(t.amount_spent);
+              }
+          });
+          totalspent = totalspent / 1000;
+          $('#point'+id+'').text(totalspent);
+          let value = totalspent * 1000 * 100 / parseInt(max_amount_at_level);
+          $('#details'+id+'').find('.progressbar').css('width',''+value.toString()+'%');
+      });
+      $('body').on('keyup', '.gift_wrapping_used_today', function(e){
+          e.preventDefault();
+          let id = $("#"+this.id+"").attr('customer_id');
+          let gift_wrapping_used_today = $('#'+this.id+'').val();
+          //let gift_wrap = $('#gift_wrapping'+id+'').text();
+          let gift_wrap = parseFloat($('#'+this.id+'').attr('gift_wrapping'));
+          //alert($.isNumeric(gift_wrapping_used_today));
+          if(!$.isNumeric(gift_wrapping_used_today)) {
+              gift_wrapping_used_today = 0;
+              
+          }
+          
+          let new_giftwrap =  parseFloat(gift_wrap) - parseFloat(gift_wrapping_used_today);
+          if(new_giftwrap < 0){
+            $('#'+this.id+'').val(0);
+            Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'The Customer has only '+gift_wrap+' gift wrapping left'
+                    })
+          }else{
+            $('#gift_wrapping'+id+'').text(new_giftwrap);
+          }
+          if(gift_wrapping_used_today == 0) {
+              customers.forEach(c => {
+                  if(c.id == id) $('#gift_wrapping'+id+'').text(c.customer_wrapping_left);
+              });
+          }
+          
+      });
+      $('body').on('keyup', '.gift_certificate_used_today', function(e){
+          e.preventDefault();
+          e.preventDefault();
+          let id = $("#"+this.id+"").attr('customer_id');
+          //global_cert = $('#gift_certificate'+id+'').text();
+          let gift_certificate_used_today = $('#'+this.id+'').val();
+          let gift_cert = parseFloat($('#'+this.id+'').attr('gift_certificate'));
+          //alert(gift_cert);
+          //alert(gift_certificate_used_today+"_"+gift_cert);
+          if(!$.isNumeric(gift_certificate_used_today)) {
+            gift_certificate_used_today = 0;
+          }
+          if(gift_certificate_used_today == '') {
+              customers.forEach(c => {
+                  if(c.id == id) $('#gift_certificate'+id+'').text(c.customer_certificate_left);
+              });
+          }
+          
+          let new_giftcert =  parseFloat(gift_cert) - parseFloat(gift_certificate_used_today);
+          if(new_giftcert < 0){
+            $('#'+this.id+'').val(0);
+            Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'The Customer has only '+gift_cert+' gift wrapping left'
+                    })
+          }else{
+            $('#gift_certificate'+id+'').text(new_giftcert);
+          }
+          if(gift_certificate_used_today == 0) {
+              customers.forEach(c => {
+                  if(c.id == id) $('#gift_certificate'+id+'').text(c.customer_certificate_left);
+              });
+          }
+      });
+      $('body').on('click', '.translist', function(e){
+        //$('#details'+this.id+'').addClass('displaytype'); 
+        let c = $('#'+this.id+'').attr('customer_id');
+        $('#details'+c+'').remove();
+        global_id = '';
+        if(this.id == trans_id) return false;
+        trans_id = this.id;
+          e.preventDefault();
+          
+          let value = 0;
+           //(c); 
+                                      
+        html = "<div class='transactiondetails' id='trans"+c+"' style='font-weight: 700;background-color: #BA3338'>"
+                  +"<div style='display: flex;justify-content: flex-end'>"
+                  +"<button class='closebtn1' id='closebtn1"+c+"' customer_id = '"+c+"' style='font-weight:500;margin:10px;border: 2px solid #BA3338;color: #BA3338;height: 30px;background-color: #fff;border-radius:2px;width: 100px;padding-left:25px;padding-right:25px;border-radius:5px;'>CLOSE</button>"
+                  +"</div><div class='table-responsive' style='margin-top:20px;'>"
+                  +"<table class='table table-striped jambo_table bulk_action'>"
+                  +"<thead >"
+                        +"<tr class='headings' style='color:#fff;font-size:1.2em;text-align:center;'>"
+                        +"<th class='column-title'>Date </th>"
+                        +"<th class='column-title'>Store </th>"
+                        +"<th class='column-title'>Gift Wrapping used </th>"
+                        +"<th class='column-title'>Gift Certificate used </th>"
+                        +"<th class='column-title'>Amount Spent </th></tr></thead><tbody id='tbody' style='color:#fff;font-szie:14px;'>";
+          transactions.forEach(t => {
+              if(t.customer_id == c){
+                  value = 1;
+                  html +="<tr  style='font-weight:400;text-align:center;font-size:1.2em'>"
+                        +"<td class='column-title'>"+t.created_at+" </td>"
+                        +"<td class='column-title'>"+t.store_location+" </td>"
+                        +"<td class='column-title'>"+t.gift_wrapping_used+" </td>"
+                        +"<td class='column-title'>"+t.gift_certificate_used+" </td>"
+                        +"<td class='column-title'>"+t.amount_spent+" </td></tr>";
+              }
+         
+          });
+          html += "</tbody></table></div></div>";
+          if(value == 0) html = "<div class='transactiondetails' id='trans"+c+"' style='font-weight: 700;background-color: #BA3338;'>"
+                                +"<div style='display: flex;justify-content: flex-end'>"
+                                +"<button class='closebtn1' id='closebtn1"+c+"' customer_id = '"+c+"' style='font-weight:500;margin:10px;border: 2px solid #BA3338;color: #BA3338;height: 30px;background-color: #fff;border-radius:2px;width: 100px;padding-left:25px;padding-right:25px;border-radius:5px;'>CLOSE</button>"
+                                +"</div><p style='color:#fff;font-size:1.3em;text-align:center;'>No Transaction Yet</p></div>";
+          //alert(value);
+          //$('#trans'+id+'').removeClass('displaytype');
+          $(html).insertAfter('#'+c+'');
+      });
+      $('body').on('click', '.closebtn', function(e){
+          global_id = '';
+          trans_id = '';
+          e.preventDefault();
+          let id = $("#"+this.id+"").attr('customer_id');
+          $('#details'+id+'').addClass('displaytype');
+          $('#trans'+id+'').addClass('displaytype');
+      });
+      $('body').on('click', '.submitbtn', function(e){
+          e.preventDefault();
+          let id = $("#"+this.id+"").attr('customer_id');
+          let gift_wrap = $('#gift_wrapping'+id+'').text();
+          let cert = $('#gift_certificate'+id+'').text();
+          let amount_spent = $('#amount_spent_today'+id+'').val();
+          let customer_level = $("#"+this.id+"").attr("customer_level");
+          let gift_wrapping_used_today = $('#gift_wrapping_used_today'+id+'').val() == '' ? '0': $('#gift_wrapping_used_today'+id+'').val();
+          let gift_certificate_used_today = $('#gift_certificate_used_today'+id+'').val() == '' ? '0': $('#gift_certificate_used_today'+id+'').val();
+          if(amount_spent == ''){
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: "Amount Spent not Specify"
+               });
+               return false;
+          }
+          let data = {gift_wrapping_left:gift_wrap,cert_left:cert,customer_id:id,gift_wrapping_used:gift_wrapping_used_today,gift_certificate_used:gift_certificate_used_today,amount_spent:amount_spent};
+          //alert(this.id);
+          $("#"+this.id+"").html("<i style='font-size: 20px;' class='fas fa-spinner fa-spin'></i>");
+          let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/addtransaction`;
+          let auth = `Bearer ${localStorage.getItem('access_token')}`
+          fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+            },
+            body: JSON.stringify(data)
+           })
+          .then(data => data.json())
+          .then(data => {
+              console.log(data);
+              if(data.message == 'unauthorized'){
+                Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: "Session Expires Log In...."
+               });
+               $("#"+this.id+"").text('Save');
+              }else if(data.message == 1){
+                Swal.fire(
+                    'Success!',
+                    'New Transaction Added',
+                    'success'
+                    );  
+                localStorage.removeItem('customers');
+                localStorage.removeItem('transactions');  
+                localStorage.setItem('customers',JSON.stringify(data.customers));
+                localStorage.setItem('transactions',JSON.stringify(data.transaction));
+                let f = (parseFloat($('#point'+id+'').text()) * 1000) + parseFloat(amount_spent);
+                let point = f / 1000;
+                $('#point'+id+'').text(point);
+                let max_amount_at_level = 1;
+                levels.forEach(l => {
+                    if(parseInt(l.level_id) == parseInt(customer_level)){
+                        max_amount_at_level = l.max_amount;
+                    }
+                });
+                let value = point * 1000 * 100 / parseInt(max_amount_at_level);
+                $('#details'+id+'').find('.progressbar').css('width',''+value.toString()+'%');
+                $("#"+this.id+"").text('Save');
+                $('#amount_spent_today'+id+'').val(0);
+                $('#gift_wrapping_used_today'+id+'').val(0);
+                $('#gift_certificate_used_today'+id+'').val(0);
+              }else if(data.message == 2){
+
+                Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: data.value['gift_wrapping_used']+'\n'+data.value['gift_certificate_used']+'\n'+data.value['amount_spent']
+                })
+              }
+               
+          })
+          .catch(err => {
+            $("#"+this.id+"").text('Save');
+            //.getElementById("#"+this.id+"").innerText = "Remove";
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: err.toString()
+            })
+          });
+          
+          //alert(gift_wrap+'_'+cert+'_'+amount_spent);
+      });
+      $('body').on('click', '.closebtn1', function(e){
+          e.preventDefault();
+          trans_id = '';
+          global_id = '';
+          let id = $("#"+this.id+"").attr('customer_id');
+          $('#details'+id+'').addClass('displaytype');
+          $('#trans'+id+'').addClass('displaytype');
+      });
+  });
+  function logout(){
+    let auth = `Bearer ${localStorage.getItem('access_token')}`
+    let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/logout`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+            }
+        })
+          .then(data => data.json())
+          .then(data => {
+              localStorage.clear();
+               window.location.href = 'login.html';
+          })
+          .catch(err => {
+            
+          });
+  }
+  $('#search').on('keyup',function(e){
+      let value = $('#search').val();
+      $('#container').html('');
+      var customers = JSON.parse(localStorage.getItem('customers'));
+      customers.forEach(c => {
+          let name = c.customer_name.trim().toLowerCase();
+          let uid = c.unique_id.trim().toLowerCase();
+          //alert(c.customer_name);
+          let n = name.search(value.toLowerCase());
+          let p = uid.search(value.toLowerCase());
+          if(n > -1 || p > -1){
+            let card = $('#card').clone();
+            card.prop('id', ''+c.id+'');
+            card.appendTo("#container");
+            $('#'+c.id+'').removeClass('displaytype');
+            $('#'+c.id+'').find('.unique_id').prop('id','unique_id'+c.id+'').text(c.unique_id);
+            $('#'+c.id+'').find('.customer_name').prop('id','customer_name'+c.id+'').text(c.customer_name.toUpperCase());
+            $('#'+c.id+'').find('.updatelist').attr('customer_id',c.id);
+            $('#'+c.id+'').find('.updatelist').attr('gift_left',c.customer_wrapping_left);
+            $('#'+c.id+'').find('.updatelist').attr('cert_left',c.customer_certificate_left);
+            $('#'+c.id+'').find('.updatelist').attr('id','updatelist'+c.id+'');
+            $('#'+c.id+'').find('.updatelist').attr('customer_level',c.customer_level);
+            $('#'+c.id+'').find('.updatelist').attr('gift_certificate_left',c.customer_certificate_left);
+            $('#'+c.id+'').find('.updatelist').attr('gift_wrapping_left',c.customer_wrapping_left);
+            $('#'+c.id+'').find('.translist').attr('customer_id',c.id);
+            $('#'+c.id+'').find('.translist').attr('id','translist'+c.id+'');
+            if(c.customer_level == '0')
+            $('#'+c.id+'').find('.color').css('background-color','#757678');
+            if(c.customer_level == '1')
+            $('#'+c.id+'').find('.color').css('background-color','#39DB2C');
+            if(c.customer_level == '2')
+            $('#'+c.id+'').find('.color').css('background-color','#FF4497');
+            if(c.customer_level == '3')
+            $('#'+c.id+'').find('.color').css('background-color','#00A3F2');
+          }
+      });
+  });
+</script>
+</html>
