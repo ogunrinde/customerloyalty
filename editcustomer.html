@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    
+    <title>The Little Big Kid Company</title>
+  </head>
+  <style>
+    body{
+        background-color: #DFE3E7;
+        overflow-x: hidden;
+        font-family: 'Raleway', sans-serif;
+    }
+    .flex{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex .child{
+        
+    }
+    .main{
+        margin-right: 20px;
+        padding-bottom: 7px;
+        text-align: center;
+        color: #757678;
+        font-weight: 500;
+        font-size: 1.0em;
+        border-bottom: 4px solid #4E73DF;
+    }
+    .card{
+        width: 80vw;
+        margin-left: 10vw;
+        padding: 20px;
+        margin-top: 10px;
+        height: 70px;
+        font-size: 0.8em;
+        padding: 7px;
+        box-shadow: 5px 10px rgba(black, black, black, 0.16);
+    }
+    .carddetail, .transactiondetails{
+        width: 80vw;
+        margin-left: 10vw;
+        border:3px solid #BA3338;
+        height: 350px;
+        font-size: 0.8em;
+        padding: 7px;
+        background-color: #fff;
+        border-radius: 7px;
+        margin-top:7px; 
+    }
+    .flex3{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    .displaytype{
+        display: none;
+    }
+    input{
+         width: 60%;
+         height: 40px;
+         border:1px solid #ced4da;
+         border-radius:5px;
+     }
+     .form-control{
+         height: 40px !important;
+         border-top-left-radius: 15px;border-bottom-left-radius: 15px;
+     }
+  </style>
+  <body>
+     <div class="flex">
+        <div class="child">
+                <img src="./asset/img/logo.png" alt="" width="130px;height:50px;">
+        </div>
+        <div class="child">
+            <div style="text-align: center;">
+                <a href="main.html" class="main" style="color: #DFE3E7; border-bottom: none">DASHBOARD</a>
+                <a href="customer.html" class="main">CUSTOMER</a>
+                <a href="password.html" class="main" style="color: #DFE3E7; border-bottom: none;">CHANGE PASSWORD</a>
+            </div>
+        </div>
+        <div class="child">
+                <div>
+                        <!--a href="" style="color:#757678;background-color:#fff;margin:7px;">Admin &nbsp;<span>
+                                <img src="./asset/img/user.png" alt="" style="width:20px;height: 20px;">
+                        </span></a-->
+                        <a href="create_admin.html" id="role" class="btn btn-primary displaytype" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Create Admin</a>
+                        <a href="home.html" class="btn btn-primary" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Home</a>
+                        <a onclick="logout()" class="btn btn-primary" style="border:1px solid #4E73DF;color:#fff;background-color:#4E73DF;margin:7px;">Logout</a>
+                </div>
+        </div>
+     </div>
+     <div class="flex3" style="margin-top:1px;">
+            
+            <div class="child">
+                <div style="text-align: center;font-size: 0.8em;">
+                    <a href="customer.html" class="main" style="color: #757678; border-bottom: none">ADD CUSTOMER</a>
+                    <a href="view_customer.html" class="main" style="color: #757678; border-bottom: none">VIEW CUSTOMER</a>
+                    <a href="editcustomer.html" class="main" style="color: #4E73DF; border-bottom: none;">EDIT CUSTOMER</a>
+                </div>
+            </div>
+           
+         </div>
+     <div style="width:60%;margin-left:20%;padding: 10px;">
+           <div class="row">
+               <div class="col-12">
+                    <input id="search" type="text" style="border-top-left-radius: 0px;border-bottom-left-radius:0px;" class="form-control" placeholder='Search customer by name or ID'/>
+               </div>
+               <!--div class="col-3" style="margin-left: -25px;">
+                    <input type="submit" class="btn btn-primary" style="width:10vw;height: 38px;"/>
+               </div-->
+               
+           </div>
+     </div>   
+      <div id="container" style="margin-top: -5%">
+        <div style="width:50%;margin-left:25%;padding-top: 5%;">
+            <div class="form-group">
+                <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">Customer Name</label>
+                <input type="text" id='customer_name' style="border-top-left-radius:0;border-bottom-left-radius:0;" placeholder="name" class="form-control">    
+            </div>
+            <div class="form-group">
+                <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">Customer Email</label>
+                <input type="email" id="customer_email" style="border-top-left-radius:0;border-bottom-left-radius:0;" placeholder="Email" class="form-control">    
+            </div>
+            <div class="form-group">
+                    <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">Customer Phone Number</label>
+                    <input type="number" id="customer_number" style="border-top-left-radius:0;border-bottom-left-radius:0;" placeholder="Phone Number" class="form-control">    
+            </div>
+            <div class="form-group">
+                <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">Customer Level</label>
+                <select name="level" id="customer_level" class="form-control" style="border-top-left-radius:0;border-bottom-left-radius:0;">
+                    <option value=""></option>
+                    <option value="0">Level Zero</option>
+                    <option value="1">Level One</option>
+                    <option value="2">Level Two</option>
+                    <option value="3">Level Three</option>
+                </select>    
+            </div>
+            <div class="form-group">
+                <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">Gift Wrapping</label>
+                <input type="number" id="gift" disabled style="border-top-left-radius:0;border-bottom-left-radius:0;" placeholder="" class="form-control">    
+                <input type="text" id="customer_id" disabled style="display:none;border-top-left-radius:0;border-bottom-left-radius:0;" placeholder="" class="form-control">    
+            </div>
+            <div class="form-group">
+                <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">Gift Certificate</label>
+                <input type="number" id="cert" disabled style="border-top-left-radius:0;border-bottom-left-radius:0;" placeholder=""  class="form-control">    
+            </div>
+
+                <div>
+                    <button  id="editcustomer" type="button" class="btn btn-primary" style="width: 100%;background-color: #4E73DF;height: 50px;">EDIT CUSTOMER</button>
+                </div>
+        </div> 
+      </div>   
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+
+
+<script>
+  function logout(){
+    let auth = `Bearer ${localStorage.getItem('access_token')}`
+    let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/logout`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+            }
+        })
+          .then(data => data.json())
+          .then(data => {
+              localStorage.clear();
+               window.location.href = 'login.html';
+          })
+          .catch(err => {
+            
+          });
+  }    
+  $(function(){
+      var customers = JSON.parse(localStorage.getItem('customers'));
+      var transactions = JSON.parse(localStorage.getItem('transactions'));
+      var levels = JSON.parse(localStorage.getItem('levels'));
+      let role = JSON.parse(localStorage.getItem('role'));
+      if(role == 'super admin') $('#role').removeClass('displaytype');
+      else $('#role').addClass('displaytype');
+  function getvalue(value){
+    var levels = JSON.parse(localStorage.getItem('levels'));
+    alert(value); 
+    levels.forEach(level => {
+           if(level.level_id == value){  
+              
+            document.getElementById('gift').value = level.gift_wrapping;
+            document.getElementById('cert').value = level.gift_certificate;
+           } 
+       });
+  }
+  $('#customer_level').on('change', function(e){
+      e.preventDefault();
+      let value = $(this).val();
+      levels.forEach(level => {
+           if(level.level_id == value){  
+              
+            document.getElementById('gift').value = level.gift_wrapping;
+            document.getElementById('cert').value = level.gift_certificate;
+           } 
+       });
+  })
+  $('#search').on('keyup',function(e){
+      let value = $('#search').val().toLowerCase();
+      var customers = JSON.parse(localStorage.getItem('customers'));
+      customers.forEach(c => {
+          let name = c.customer_name.trim().toLowerCase();
+          let uid = c.unique_id.trim().toLowerCase();
+          //alert(c.customer_name);
+          let n = name.search(value.toLowerCase());
+          let p = uid.search(value.toLowerCase());
+          if(n > -1 || p < -1){
+              $('#customer_name').val(c.customer_name);
+              $('#customer_email').val(c.customer_email);
+              $('#customer_number').val(c.customer_phone_number);
+              $('#customer_level').val(c.customer_level);
+              $('#customer_id').val(c.id);
+              $('#gift').val(c.customer_wrapping_left);
+              $('#cert').val(c.customer_certificate_left);
+          }
+      });
+      if(value == ''){
+              $('#customer_name').val('');
+              $('#customer_email').val('');
+              $('#customer_number').val('');
+              $('#customer_level').val('');
+      }
+    });
+    $('#editcustomer').on('click', function(e){
+        e.preventDefault();
+        let levels = JSON.parse(localStorage.getItem('levels'));
+        let name = $('#customer_name').val();
+        let email = $('#customer_email').val();
+        let phone = $('#customer_number').val();
+        let level = $('#customer_level').val();
+        let customer_id = $('#customer_id').val();
+        let gift = $("#gift").val();
+        let cert = $('#cert').val();
+       let data = {customer_id:customer_id,name : name,customer_email:email,phone_number:phone,customer_level : level,wrapping_left:gift,certificate_left:cert}
+       document.getElementById("editcustomer").innerHTML = "<i style='font-size: 20px;' class='fas fa-spinner fa-spin'></i>";
+       let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/editcustomer`;
+       let auth = `Bearer ${localStorage.getItem('access_token')}`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+
+            },
+            body: JSON.stringify(data)
+        })
+          .then(data => data.json())
+          .then(data => {
+              if(data.message == 'unauthorized'){
+                Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Session Expires, log In again'
+                    });
+                    window.location.href ="login.html";
+              }else{
+                 if(data.message == 1){
+                    Swal.fire(
+                    'Success!',
+                    'Customer Information Editted',
+                    'success'
+                    );
+                    localStorage.setItem('customers',JSON.stringify(data.customers));
+                    document.getElementById("addcustomer").innerText = "EDIT CUSTOMER";
+                 }else {
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Error editting Customer details, try again later'
+                    });
+                    document.getElementById("addcustomer").innerText = "EDIT CUSTOMER";
+                 }
+              }
+               
+          })
+          .catch(err => {
+            document.getElementById("addcustomer").innerText = "EDIT CUSTOMER";
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: err.toString()
+            })
+          });
+    })
+  });
+</script>
+</html>
