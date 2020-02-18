@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+    <title>The Little Big Kid Company</title>
+  </head>
+  <style>
+    body{
+        background-color: #DFE3E7;
+        overflow-x: hidden;
+        font-family: 'Raleway', sans-serif;
+    }
+    .flex{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex .child{
+        
+    }
+    .customers{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+    .customers div {
+        width: 200px;
+        height: 15vh;
+        margin: 10px;
+
+    }
+    .displaytype{
+        display: none;
+    }
+    .main{
+        margin-right: 20px;
+        padding-bottom: 7px;
+        text-align: center;
+        color: #757678;
+        font-weight: 500;
+        font-size: 1.0em;
+        border-bottom: 4px solid #4E73DF;
+    }
+    .flex2{
+        display: flex;
+        height: 150px;
+        width: 100vw;
+        padding: 15px;
+        margin-top: -20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .card{
+        width: 30vw;
+        font-size: 0.8em;
+        border-left:5px solid #DB2C2C;
+        padding: 7px;
+        box-shadow: 5px 10px rgba(black, black, black, 0.16);
+    }
+    .flex3{
+        display: flex;
+        width: 100vw;
+        padding: 15px;
+        padding-left: 5px; 
+        justify-content: space-between;
+    }
+    .card2{
+        width: 90%;
+        margin-left:5%; 
+        background-color: #fff;
+        font-size: 0.8em;
+        border-right:100px solid #7DD148;
+        height: 80px;
+        padding: 7px;
+        box-shadow: 2px 2px #fff;
+    }
+    .card3{
+        width: 90%;
+        margin-left:5%; 
+        background-color: #fff;
+        font-size: 0.8em;
+        height: 50vh;
+        padding: 7px;
+        box-shadow: 2px 2px #fff;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+  </style>
+  <body>
+     <div class="flex">
+        <div class="child">
+                <img src="./asset/img/logo.png" alt="" width="130px;height:50px;">
+        </div>
+        <div class="child">
+            <div style="text-align: center;">
+                <a href="main.html" class="main" >DASHBOARD</a>
+                <a href="customer.html" class="main" style="color: #DFE3E7; border-bottom: none">CUSTOMER</a>
+                <a href="password.html" class="main" style="color: #DFE3E7; border-bottom: none;">CHANGE PASSWORD</a>
+            </div>
+        </div>
+        <div class="child">
+                <div>
+                        <!--a href="" style="color:#757678;background-color:#fff;margin:7px;">Admin &nbsp;<span>
+                                <img src="./asset/img/user.png" alt="" style="width:20px;height: 20px;">
+                        </span></a-->
+                        <a href="create_admin.html" id="role" class="btn btn-primary displaytype" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Create Admin</a>
+                        <a href="home.html" class="btn btn-primary" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Home</a>
+                        <a onclick="logout()" class="btn btn-primary" style="border:1px solid #4E73DF;color:#fff;background-color:#4E73DF;margin:7px;">Logout</a>
+                </div>
+        </div>
+     </div>
+       <div style="background-color: #F8F8F9;margin-top:5px;margin-bottom: 0px;"> 
+            <p style="margin-left: 13px;position:relative;top:19px;font-weight:700;font-size:1.0em">INTERESTING FACT ABOUT THE STORE</p>
+        <div class="flex2">
+            
+            <div class="child2">
+                <div class="card" style="text-align: center;font-weight: 700">
+                    <div style="color: #DB2C2C;text-align:center;font-weight: 700;padding-bottom: 10px;">TOTAL NO. OF CUSTOMERS</div>
+                    <div id='totalcustomer' style="font-size: 1.5em;">0</div>
+                </div>
+            </div>
+            <div class="child2">
+                    <div class="card" style="border-left:5px solid #A503FA;text-align: center;font-weight: 700;">
+                            <div style="color: #A503FA;text-align:center;font-weight: 700;padding-bottom: 10px;">AMOUNT OF GIFT CERTIFICATE GIVEN</div>
+                            <div id="totalcert" style="font-size: 1.5em;">0</div>
+                        </div>
+            </div>
+            <div class="child2">
+                <div class="card" style="border-left:5px solid #39DB2C;text-align: center;font-weight: 700;">
+                    <div style="color: #39DB2C;text-align:center;font-weight: 700;padding-bottom: 10px;">NUMBER OF GIVEN WRAPPINGS GIVEN</div>
+                    <div id='totalgift' style="font-size: 1.5em;">0</div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="flex3">
+        <div class="child3" style="height:80vh;background-color: #F8F8F9;margin-top:5px;margin-bottom: 0px;width: 50%;margin-left: 5px;padding-bottom: 10px;">
+            <p style="text-align:center;font-weight:700;font-size:1.0em;padding: 10px;">LEVEL OF LOYALTY</p>
+           
+            <div class="card2" style="font-weight: 700;margin-top: 10px;border-right: 100px solid #dedede">
+                    <div style="font-weight: 700;padding-bottom: 10px;color: #000;">LEVEL ZERO</div>
+                    <div class="row" style="color: #757678;font-size:0.9em;">
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/discount.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id='discount0'></p>
+                        </div>
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/money.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id='cert0'>15,000</p>
+                        </div>
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/gift.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id='gift0'>10</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="card2" style="font-weight: 700;margin-top: 10px;border-right: 100px solid #7DD148">
+                    <div style="font-weight: 700;padding-bottom: 10px;color: #000;">LEVEL 1</div>
+                    <div class="row" style="color: #757678;font-size:0.9em;">
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/discount.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id="discount1">5</p>
+                        </div>
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/money.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id="cert1">15,000</p>
+                        </div>
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/gift.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id="gift1">10</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="card2" style="font-weight: 700;margin-top: 10px;border-right: 100px solid  #FF4497">
+                    <div style="font-weight: 700;padding-bottom: 10px;color: #000;">LEVEL 2</div>
+                    <div class="row" style="color: #757678;font-size:0.9em;">
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/discount.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id="discount2">5</p>
+                        </div>
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/money.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id="cert2">15,000</p>
+                        </div>
+                        <div class="col-4" style="text-align: center;">
+                                <img src="./asset/img/gift.png" alt="" width="20px;height:20px;">
+                                <p style="padding: 7px;" id="gift2">10</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="card2" style="font-weight: 700;margin-top: 10px;border-right: 100px solid #00A3F2">
+                <div style="font-weight: 700;padding-bottom: 10px;color: #000;">LEVEL 3</div>
+                <div class="row" style="color: #757678;font-size:0.9em;">
+                    <div class="col-4" style="text-align: center;">
+                            <img src="./asset/img/discount.png" alt="" width="20px;height:20px;">
+                            <p style="padding: 7px;" id="discount3">5</p>
+                    </div>
+                    <div class="col-4" style="text-align: center;">
+                            <img src="./asset/img/money.png" alt="" width="20px;height:20px;">
+                            <p style="padding: 7px;" id="cert3">15,000</p>
+                    </div>
+                    <div class="col-4" style="text-align: center;">
+                            <img src="./asset/img/gift.png" alt="" width="20px;height:20px;">
+                            <p style="padding: 7px;" id="gift3">10</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="child3" style="background-color: #DFE3E7;margin-top:5px;margin-bottom: 0px;width: 50%;margin-left: 5px;padding-bottom: 10px;">
+                
+                <div class="card3" style="font-weight: 700;background-color: #F8F8F9;">
+                    <div style="font-weight: 700;padding-bottom: 10px;color: #000;">
+                            <p style="text-align:center;font-weight:700;font-size:1.0em;padding: 10px;">NUMBER OF CUSTOMERS BASED ON LEVEL</p>
+                    </div>
+                    <div class="customers" style="color: #757678;font-size:0.9em;">
+                        
+                        <div class="customer1" style="text-align: center;background-color: #DEDEDE;color:#4f4f4f;">
+                                    <p style="margin-top:2vh;"><span style="font-size: 2em;" id='0'>0</span><br/><span>Customers</span></p>
+                                
+                        </div>
+                        <div class="customer2" style="text-align: center;background-color: #7DD148;color:#fff;">
+                            <p style="margin-top:2vh;"><span style="font-size: 2em;" id='1'>0</span><br/><span>Customers</span></p>
+                        
+                        </div>
+                        <div class="customer3" style="text-align: center;background-color: #FF4497;color:#fff;">
+                            <p style="margin-top:2vh;"><span style="font-size: 2em;" id='2'>0</span><br/><span>Customers</span></p>
+                        
+                        </div>
+                        <div class="customer4" style="text-align: center;background-color: #00A3F2;color:#fff;">
+                            <p style="margin-top:2vh;"><span style="font-size: 2em;" id='3'>0</span><br/><span>Customers</span></p>
+                        
+                        </div>
+
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+   let levels = JSON.parse(localStorage.getItem('levels'));
+   let role = JSON.parse(localStorage.getItem('role'));
+   if(role == 'super admin') $('#role').removeClass('displaytype');
+   else $('#role').addClass('displaytype');
+   function logout(){
+    let auth = `Bearer ${localStorage.getItem('access_token')}`
+    let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/logout`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+            }
+        })
+          .then(data => data.json())
+          .then(data => {
+              localStorage.clear();
+               window.location.href = 'login.html';
+          })
+          .catch(err => {
+            
+          });
+   }
+   console.log(localStorage.getItem('levels'));
+   let customers = JSON.parse(localStorage.getItem('customers'));
+   document.getElementById("totalcustomer").innerText = customers.length;
+   levels.forEach(level => {
+       if(level.level_id == '0'){
+        document.getElementById("discount0").innerText = level.discount;
+        document.getElementById("gift0").innerText = level.gift_wrapping;
+        document.getElementById("cert0").innerText = level.gift_certificate;
+       }else if(level.level_id == '1'){
+        document.getElementById("discount1").innerText = level.discount;
+        document.getElementById("gift1").innerText = level.gift_wrapping;
+        document.getElementById("cert1").innerText = level.gift_certificate;
+       }else if(level.level_id == '2'){
+        document.getElementById("discount2").innerText = level.discount;
+        document.getElementById("gift2").innerText = level.gift_wrapping;
+        document.getElementById("cert2").innerText = level.gift_certificate;
+       }else if(level.level_id == '3'){
+        document.getElementById("discount3").innerText = level.discount;
+        document.getElementById("gift3").innerText = level.gift_wrapping;
+        document.getElementById("cert3").innerText = level.gift_certificate;
+       }
+   });
+   customers.forEach(customer => {
+       if(customer.customer_level == '0'){
+        document.getElementById("0").innerText = parseInt(document.getElementById("0").innerText) + 1;
+        document.getElementById("totalgift").innerText = parseInt(document.getElementById("totalgift").innerText) + parseInt(document.getElementById("gift0").innerText);
+        document.getElementById("totalcert").innerText = parseInt(document.getElementById("totalcert").innerText) + parseInt(document.getElementById("cert0").innerText);
+       }else if(customer.customer_level == '1'){
+        document.getElementById("1").innerText = parseInt(document.getElementById("1").innerText) + 1;
+        document.getElementById("totalgift").innerText = parseInt(document.getElementById("totalgift").innerText) + parseInt(document.getElementById("gift1").innerText);
+        document.getElementById("totalcert").innerText = parseInt(document.getElementById("totalcert").innerText) + parseInt(document.getElementById("cert1").innerText);
+       }else if(customer.customer_level == '2'){
+        document.getElementById("2").innerText = parseInt(document.getElementById("2").innerText) + 1;
+        document.getElementById("totalgift").innerText = parseInt(document.getElementById("totalgift").innerText) + parseInt(document.getElementById("gift2").innerText);
+        document.getElementById("totalcert").innerText = parseInt(document.getElementById("totalcert").innerText) + parseInt(document.getElementById("cert2").innerText);
+       }else if(customer.customer_level == '3'){
+        document.getElementById("3").innerText = parseInt(document.getElementById("3").innerText) + 1;
+        document.getElementById("totalgift").innerText = parseInt(document.getElementById("totalgift").innerText) + parseInt(document.getElementById("gift3").innerText);
+        document.getElementById("totalcert").innerText = parseInt(document.getElementById("totalcert").innerText) + parseInt(document.getElementById("cert3").innerText);
+       }
+   });
+   let y = 222;
+   
+   document.getElementById("totalcert").innerText = parseInt(document.getElementById("totalcert").innerText).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+</script>
+</html>
