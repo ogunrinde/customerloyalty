@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <title>The Little Big Kid Company</title>
+  </head>
+  <style>
+    body{
+        background-color: #DFE3E7;
+        overflow-x: hidden;
+        font-family: 'Raleway', sans-serif;
+    }
+    .displaytype{
+        display: none;
+    }
+    .flex{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex .child{
+        
+    }
+    .main{
+        margin-right: 20px;
+        padding-bottom: 7px;
+        text-align: center;
+        color: #757678;
+        font-weight: 500;
+        font-size: 1.0em;
+        border-bottom: 4px solid #4E73DF;
+    }
+    .flex3{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    input{
+         width: 60%;
+         height: 55px;
+     }
+     .form-control{
+         height: 50px !important;
+     }
+  </style>
+  <body>
+     <div class="flex">
+        <div class="child">
+                <img src="./asset/img/logo.png" alt="" width="130px;height:50px;">
+        </div>
+        <div class="child">
+            <div style="text-align: center;">
+                <a href="main.html" class="main" style="color: #DFE3E7; border-bottom: none">DASHBOARD</a>
+                <a href="customer.html" class="main">CUSTOMER</a>
+                <a href="password.html" class="main" style="color: #DFE3E7; border-bottom: none;">CHANGE PASSWORD</a>
+            </div>
+        </div>
+        <div class="child">
+                <div>
+                        <!--a href="" style="color:#757678;background-color:#fff;margin:7px;">Admin &nbsp;<span>
+                                <img src="./asset/img/user.png" alt="" style="width:20px;height: 20px;">
+                        </span></a-->
+                        <a href="create_admin.html" id="role" class="btn btn-primary displaytype" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Create Admin</a>
+                        <a href="home.html" class="btn btn-primary" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Home</a>
+                        <a onclick="logout()" class="btn btn-primary" style="border:1px solid #4E73DF;color:#fff;background-color:#4E73DF;margin:7px;">Logout</a>
+                </div>
+        </div>
+     </div>
+     <div class="flex3" style="margin-top:1px;">
+            
+            <div class="child">
+                <div style="text-align: center;font-size: 0.8em;">
+                    <a href="main.html" class="main" style="color: #4E73DF; border-bottom: none">ADD CUSTOMER</a>
+                    <a href="view_customer.html" class="main" style="color: #757678; border-bottom: none">VIEW CUSTOMER</a>
+                    <a href="editcustomer.html" class="main" style="color: #757678; border-bottom: none;">EDIT CUSTOMER</a>
+                </div>
+            </div>
+           
+         </div>
+     <div style="width:80%;margin-left:10%;padding: 10px;">
+                    <div class="form-group">
+                        <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">FULL NAME</label>
+                        <input type="text" placeholder="fullname" class="form-control" id="fullname">     
+                    </div>
+                    <div class="form-group">
+                            <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">EMAIL ADDRESS</label>
+                            <input type="email" placeholder="Email" class="form-control" id="customer_email">    
+                    </div>
+                    <div class="row">
+                            <div class="col-6">
+                                    <div class="form-group">
+                                            <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">PHONE NUMBER</label>
+                                            <input type="number" placeholder="080311.." class="form-control" id="phone_number">    
+                                        </div>
+                            </div>
+                            <div class="col-6">
+                                    <div class="form-group">
+                                            <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">LEVEL</label>
+                                            <select onchange="getvalue(this.value)" name="" class="form-control" id="customer_level">
+                                                <option value=""></option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>   
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-6">
+                                        <div class="form-group">
+                                                <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">GIFT WRAPPINGS</label>
+                                                <input type="number" placeholder="Gift" class="form-control" id='gift'>    
+                                            </div>
+                                </div>
+                                <div class="col-6">
+                                        <div class="form-group">
+                                                <label for="" style="color: #666666;font-size:0.9em;font-weight: 600">GIFT CERTIFICATE</label>
+                                                <input type="number" placeholder="Certificate" class="form-control" id="cert">    
+                                            </div>
+                                </div>
+                            </div>
+                        <div>
+                                <button onclick="addcustomer()" id="addcustomer"  class="btn btn-primary" style="width: 100%;background-color: #4E73DF;height: 50px;">ADD CUSTOMER</button>
+                        </div>
+     </div>    
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+   let levels = JSON.parse(localStorage.getItem('levels'));
+   let role = JSON.parse(localStorage.getItem('role'));
+   if(role == 'super admin') $('#role').removeClass('displaytype');
+   else $('#role').addClass('displaytype');
+   function addcustomer(){
+       let fullname = document.getElementById('fullname').value;
+       let email = document.getElementById('customer_email').value;
+       let phone = document.getElementById('phone_number').value;
+       let level = document.getElementById('customer_level').value;
+       let gift = document.getElementById('gift').value;
+       let cert = document.getElementById('cert').value;
+       if(fullname == '' || level == ''){
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'The following input fields are required; fullname, Customer Level'
+            });
+            return false;
+       }
+       let data = {name : fullname,customer_email:email,phone_number:phone,customer_level : level,wrapping_left:gift,certificate_left:cert}
+       document.getElementById("addcustomer").innerHTML = "<i style='font-size: 20px;' class='fas fa-spinner fa-spin'></i>";
+       let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/addcustomer`;
+       let auth = `Bearer ${localStorage.getItem('access_token')}`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+
+            },
+            body: JSON.stringify(data)
+        })
+          .then(data => data.json())
+          .then(data => {
+            document.getElementById('fullname').value = '';
+            document.getElementById('customer_email').value ='';
+            document.getElementById('phone_number').value = '';
+            document.getElementById('customer_level').value = '';
+            document.getElementById('gift').value = '';
+            document.getElementById('cert').value = '';
+            document.getElementById("addcustomer").innerText = "ADD CUSTOMER";
+            console.log(data);
+              if(data.message == 'unauthorized'){
+                
+              }else{
+                  console.log(data);
+                 if(data.message == 1){
+                    Swal.fire(
+                    'Success!',
+                    'New Customer Added',
+                    'success'
+                    );
+                    localStorage.removeItem('customers');
+                    localStorage.setItem('customers',JSON.stringify(data.customers));
+                    //console.log(data.customers);
+                 }else if(data.message == 0){
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Error Adding Customer, try again later'
+                    })
+                 }else if(data.message == 3){
+                    let msg= '';
+                    if(data.value['name'] != undefined) msg += data.value['name']; 
+                    if(data.value['customer_level'] != undefined) msg += data.value['customer_level']; 
+                    Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: msg
+                   });
+                   document.getElementById("addcustomer").innerText = "ADD CUSTOMER";
+              }
+            }   
+          })
+          .catch(err => {
+            document.getElementById("addcustomer").innerText = "ADD CUSTOMER";
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: err.toString()
+            })
+          });
+          
+   }
+   function logout(){
+    let auth = `Bearer ${localStorage.getItem('access_token')}`
+    let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/logout`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+            }
+        })
+          .then(data => data.json())
+          .then(data => {
+              localStorage.clear();
+               window.location.href = 'login.html';
+          })
+          .catch(err => {
+            
+          });
+  }  
+   function getvalue(value){
+    //console.log(levels);
+       levels.forEach(level => {
+           if(level.level_id == value){  
+            document.getElementById('gift').value = level.gift_wrapping;
+            document.getElementById('cert').value = level.gift_certificate;
+           } 
+       });
+   }
+</script>
+</html>
