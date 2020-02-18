@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Hello World!</title>
+  </head>
+  <style>
+    body{
+        background-color: #DFE3E7;
+        overflow-x: hidden;
+    }
+    .flex{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex .child{
+        
+    }
+    .main{
+        margin-right: 20px;
+        padding-bottom: 7px;
+        text-align: center;
+        color: #757678;
+        font-weight: 500;
+        font-size: 1.0em;
+        border-bottom: 4px solid #4E73DF;
+    }
+    .card{
+        padding: 20px;
+        margin-top: 10px;
+        height: 70px;
+        font-size: 0.8em;
+        padding: 7px;
+        box-shadow: 5px 10px rgba(black, black, black, 0.16);
+    }
+    .flex3{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    input{
+         width: 60%;
+         height: 40px;
+     }
+     .form-control{
+         height: 40px !important;
+         border-top-left-radius: 15px;border-bottom-left-radius: 15px;
+     }
+  </style>
+  <body>
+     <div class="flex">
+        <div class="child">
+                <img src="./asset/img/logo.png" alt="" width="130px;height:50px;">
+        </div>
+        <div class="child">
+            <div style="text-align: center;">
+                <a href="main.html" class="main" style="color: #DFE3E7; border-bottom: none">DASHBOARD</a>
+                <a href="customer.html" class="main">CUSTOMER</a>
+                <a href="password.html" class="main" style="color: #DFE3E7; border-bottom: none;">CHANGE PASSWORD</a>
+            </div>
+        </div>
+        <div class="child">
+                <div>
+                        <a href="" style="color:#757678;background-color:#fff;margin:7px;">Admin &nbsp;<span>
+                                <img src="./asset/img/user.png" alt="" style="width:20px;height: 20px;">
+                        </span></a>
+                        <a href="home.html" class="btn btn-primary" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Home</a>
+                        <a href="" class="btn btn-primary" style="border:1px solid #4E73DF;color:#fff;background-color:#4E73DF;margin:7px;">Logout</a>
+                </div>
+        </div>
+     </div>
+     <div class="flex3" style="margin-top:1px;">
+            
+            <div class="child">
+                <div style="text-align: center;font-size: 0.8em;">
+                    <a href="customer.html" class="main" style="color: #757678; border-bottom: none">ADD CUSTOMER</a>
+                    <a href="view_customer.html" class="main" style="color: #757678; border-bottom: none">VIEW CUSTOMER</a>
+                    <a href="upgrade_customer.html" class="main" style="color: #4E73DF; border-bottom: none;">UPGRADE CUSTOMER</a>
+                </div>
+            </div>
+           
+         </div>
+     <div style="width:60%;margin-left:20%;padding: 10px;">
+           <div class="row">
+               <div class="col-9 ">
+                    <input type="text" class="form-control" placeholder='Search customer by name or ID'/>
+               </div>
+               <div class="col-3" style="margin-left: -25px;">
+                    <input type="submit" class="btn btn-primary" style="width:10vw;height: 38px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;"/>
+               </div>
+               
+           </div>
+     </div>  
+     <div style="padding: 10px;background-color: #F8F8F9;width: 80vw;margin-left: 10vw;">
+            <div class="" style="text-align: center;font-weight: 200;color:#000;">
+                    <div class="row" style='padding:20px;'>
+                        <div class="col-3">UNIQUE ID</div>
+                        <div class="col-3">FULL NAME</div>
+                        <div class="col-3">LEVEL</div>
+                        <div class="col-3">
+                            
+    
+                        </div>
+                        <div class="col-3">
+                            
+    
+                            </div>
+                    </div>
+                </div>
+            <div class="card" style="text-align: center;font-weight: 700;">
+                <div class="row" style='padding:20px;'>
+                    <div class="col-3" style="color: #858796">#ABC12345</div>
+                    <div class="col-3">Tolulope</div>
+                    <div class="col-3"><span style="width: 20px;height:20px;background-color:#7DD148;position:absolute;"></span></div>
+                    <div class="col-3">
+                        <a href="" class="btn btn-primary" style="margin-top:-10px;border:2px solid #BA3338;color:#BA3338;background-color:#fff;font-size:0.9em;">Upgrade</a>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="text-align: center;font-weight: 700;">
+                    <h3 style="text-align:left;margin-left:10px;font-size:1.2em;margin-top:20px;">Upgrade</h3>
+                    <div class="row" style='padding:20px;'>
+                        <div class="col-3" style="color: #858796;font-weight: 200;">
+                            Present Level
+                            <p style="color: #7DD148;margin:12px;font-weight: 700">Level 1</p>
+                        </div>
+                        <div class="col-3" style="color: #858796;font-weight: 200;">
+                            New Level
+                            <select name="" id="" class="form-control" style="margin: 12px;border-top-left-radius:0px;border-bottom-left-radius:0px"> 
+                                <option value="">Level 0</option>
+                                <option value="">Level 1</option>
+                                <option value="">Level 2</option>
+                                <option value="">Level 3</option>
+                            </select>
+                        </div>
+                        <div class="col-3" style="color: #F8F8F9;font-weight: 200;">
+                                 Confirm
+                                <p style="margin:12px;font-weight: 700">
+                                <input type="submit"  class="btn btn-primary" style="width: 100%;background-color: #4E73DF;height: 40px;" onclick="window.location.href = 'main.html'" value ='Confirm'/> 
+                                </p>
+                            </div>
+                    </div>
+                </div>
+           
+      </div>    
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
