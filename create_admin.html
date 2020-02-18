@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+
+    <title>The Little Big Kid Company</title>
+  </head>
+  <style>
+    body{
+        background-color: #DFE3E7;
+        overflow-x: hidden;
+    }
+    .flex{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex .child{
+        
+    }
+    .main{
+        margin-right: 20px;
+        padding-bottom: 7px;
+        text-align: center;
+        color: #757678;
+        font-weight: 500;
+        font-size: 1.0em;
+        border-bottom: 4px solid #4E73DF;
+    }
+    .flex3{
+        display: flex;
+        height: 70px;
+        width: 100vw;
+        background-color: #fff;
+        padding: 15px;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    input{
+         width: 60%;
+         height: 55px;
+     }
+     .form-control{
+         height: 50px !important;
+     }
+  </style>
+  <body>
+     <div class="flex">
+        <div class="child">
+                <img src="./asset/img/logo.png" alt="" width="130px;height:50px;">
+        </div>
+        <div class="child">
+            <div style="text-align: center;">
+                <a href="main.html" class="main" style="color: #DFE3E7; border-bottom: none">DASHBOARD</a>
+                <a href="customer.html" class="main" style="color: #DFE3E7; border-bottom: none;">CUSTOMER</a>
+                <a href="password.html" class="main" style="color: #DFE3E7; border-bottom: none;">CHANGE PASSWORD</a>
+            </div>
+        </div>
+        <div class="child">
+                <div>
+                    <a href="create_admin.html" class="btn btn-primary" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Create Admin</a>
+                        <a href="home.html" class="btn btn-primary" style="border:1px solid #4E73DF;color:#4E73DF;background-color:#fff;margin:7px;">Home</a>
+                        <a onclick="logout()" class="btn btn-primary" style="border:1px solid #4E73DF;color:#fff;background-color:#4E73DF;margin:7px;">Logout</a>
+                </div>
+        </div>
+     </div>
+
+     <div style="width:50%;margin-left:25%;padding-top: 5%;">
+        <div class="form-group">
+            <label for="" style="color: #666666;font-size:20px;">Name</label>
+            <input type="text" placeholder="Admin Name" id="name" class="form-control">    
+        </div>
+        <div class="form-group">
+            <label for="" style="color: #666666;font-size:20px;">Store Location</label>
+            <select name="store" id="store" class="form-control">
+                <option value="Lekki">Lekki</option>
+                <option value="Ikoyi">Ikoyi</option>
+                <option value="Avalon">Avalon</option>
+            </select>  
+        </div>
+        <div class="form-group">
+                <label for="" style="color: #666666;font-size:20px;">Admin Email</label>
+                <input type="email" placeholder="Email" name="email" id="email" class="form-control">    
+            </div>
+        <button class="btn btn-primary" id="admin"  onclick = 'admin()' style="width: 100%;background-color: #4E73DF;height: 50px;">Create Admin</button>
+     </div>    
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+
+<script>
+    function logout(){
+    let auth = `Bearer ${localStorage.getItem('access_token')}`
+    let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/logout`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+            }
+        })
+          .then(data => data.json())
+          .then(data => {
+              localStorage.clear();
+               window.location.href = 'login.html';
+          })
+          .catch(err => {
+            
+          });
+   }
+    function admin(){
+        let name = document.getElementById("name").value;
+        let location = document.getElementById("store").value;
+        let email = document.getElementById("email").value;
+        if(name== '' || email == '' || location == ''){
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'All input are Required'
+            });
+            return false;
+        }
+        let data = {email:email,name:name,location:location};
+        document.getElementById("admin").innerHTML = "<i style='font-size: 20px;' class='fas fa-spinner fa-spin'></i>";
+        let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/admin`;
+          let auth = `Bearer ${localStorage.getItem('access_token')}`
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization':auth
+            },
+            body: JSON.stringify(data)
+        })
+          .then(data => data.json())
+          .then(data => {
+              console.log(data);
+              if(data.message == 'unauthorized'){
+                Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: "Login with the right Information"
+               });
+               document.getElementById("admin").innerText = "Create Admin";
+              }else if(data.message == 1){
+                Swal.fire(
+                    'Success!',
+                    'New User Added(login details (username:'+email+', password:'+email+'))',
+                    'success'
+                    ); 
+                    document.getElementById("admin").innerText = "Create Admin";
+                    document.getElementById("name").value = '';
+                    document.getElementById("store").value = '';
+                    document.getElementById("email").value = '';
+              }else if(data.message == 2){
+                let msg= '';
+                if(data.value['name'] != undefined) msg += data.value['name'];
+                if(data.value['email'] != undefined) msg += data.value['email']; 
+                if(data.value['location'] != undefined) msg += data.value['location']; 
+                Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: msg
+               });
+               document.getElementById("admin").innerText = "Create Admin";
+              }
+               
+          })
+          .catch(err => {
+            document.getElementById("admin").innerText = "Create Admin";
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: err.toString()
+            })
+          });
+    }
+</script>
+</html>
