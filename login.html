@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+    <title>The Little Big Kid Company</title>
+  </head>
+  <style>
+      body{
+          overflow-x: hidden;
+          overflow-y: hidden;
+          font-family: 'Raleway', sans-serif;
+      }
+     .flex{
+         display: flex;
+         width: 100vw;
+         height: 100vh;
+         justify-content: center;
+     }
+     .flex .child{
+         width: 50%;
+         height: 100%;
+     }
+  </style>
+  <body>
+    <div class="flex">
+        <div class='child' style="background-color:#4E73DF">
+            <div style="width:60%;margin-left:auto;margin-right:auto;text-align: center;;margin-top: 20vh;">
+                <p style="text-align: center;color:#fff;font-size: 38px;">Login</p> 
+                
+                    <div class="form-group">
+                        <input type="email" id = 'email' placeholder="Email" class="form-control">    
+                    </div>
+                    <div class="form-group">
+                            <input type="password" id ='password' placeholder="Password" class="form-control">    
+                    </div>
+                    <button id='login' class="btn btn-primary" style="width: 100%;background-color: #2E395A;height: 50px;" onclick="login()">Login</button>
+                    <p style="margin-top:20px;"><a href ='reset.html' style="text-align: center;color:#fff;font-size: 18px;margin-top:20px;">Forgot Password?</a></p> 
+            </div>
+           
+        </div>
+        <div class='child' style="text-align: center;margin-top: 40vh;">
+            <img src="./asset/img/logo.png" alt="" width="40%;height:100px;">
+        </div>
+    </div>
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!--script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+
+<script>
+    function login(){
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        if(email== '' || password == ''){
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Email and Password Required'
+            })
+        }
+        let data = {email:email,password:password};
+        document.getElementById("login").innerHTML = "<i style='font-size: 20px;' class='fas fa-spinner fa-spin'></i>";
+        let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/login`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+          .then(data => data.json())
+          .then(data => {
+              if(data.message == 'unauthorized'){
+                Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: "Login with the right Information"
+               });
+               document.getElementById("login").innerText = "Login";
+              }else{
+                localStorage.setItem('customers',JSON.stringify(data.customers));
+                localStorage.setItem('transactions',JSON.stringify(data.transaction));
+                localStorage.setItem('access_token',data.access_token);
+                localStorage.setItem('expires_in',data.expires_at);
+                localStorage.setItem('levels',JSON.stringify(data.levels));
+                localStorage.setItem('role',JSON.stringify(data.role));
+                if(data.access_token != '') window.location.href = 'main.html';
+              }
+               
+          })
+          .catch(err => {
+            document.getElementById("login").innerText = "Login";
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: err.toString()
+            })
+          });
+    }
+</script>
+</html>
