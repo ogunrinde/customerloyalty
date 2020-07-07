@@ -12,7 +12,7 @@
   "author": "Ogunrinde Omotayo",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^5.0.8",
+    "electron": "^7.2.4",
     "electron-packager": "^14.0.3"
   }
 }
