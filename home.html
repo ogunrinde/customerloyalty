@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./asset/css/home.css">
+    <link rel="stylesheet" href="./asset/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <title>The Little Big Kid Company</title>
+  </head>
+  <style>
+      body{
+          overflow-y: hidden;
+          font-family: 'Raleway', sans-serif;
+      }
+     .header{
+        float:right;
+        color: #8B8B8B;
+        margin: 10px;
+        font-weight: 700;
+     }
+     .header a{
+         color:#8B8B8B;
+     }
+  </style>
+  <body>
+    <div class="header">
+        <div class="dropdown">
+          <button onclick="window.location.href ='main.html'" class="btn btn-secondary" style="background-color: #fff;color:#8B8B8B;border:none;" type="button">
+            Dashboard <img class="dropdown" src="./asset/img/user.png" alt="" style="width:20px;height: 20px;">
+          </button>
+          <a onclick="logout()" class="btn btn-primary" style="border:1px solid #4E73DF;color:#fff;background-color:#4E73DF;margin:7px;">Logout</a>
+        </div>
+        <!-- Example single danger button -->
+    </div>
+    <div style="text-align:center;clear: both;width: 100vw;height: 100vh;">
+            <img src="./asset/img/logo.png" alt="" style="width:50vh;height:25vh;margin-top:30vh;">
+    </div>
+  </body>
+  <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./asset/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./asset/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    function logout(){
+    let auth = `Bearer ${localStorage.getItem('access_token')}`
+    let url = `http://www.thelittlebigkidcompany.com.ng/api/auth/logout`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type':'application/json',
+                'Authorization': auth
+            }
+        })
+          .then(data => data.json())
+          .then(data => {
+              localStorage.clear();
+               window.location.href = 'login.html';
+          })
+          .catch(err => {
+            
+          });
+   }
+</script>
+</html>
